@@ -88,8 +88,8 @@ function buy(id) {
     } else {
         cart.push({ ...product, quantity: 1 });
     }
-    document.getElementById('count_product').textContent = cart.length;
-
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    document.getElementById('count_product').textContent = totalCount;
 }
 
 
@@ -151,8 +151,8 @@ function printCart() {
         `;
         cartList.innerHTML += row;
     });
-
-    countProduct.innerHTML = cart.length;
+    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+    countProduct.innerHTML = totalCount;
     totalPrice.innerHTML = cart.reduce((total, item) => total + item.subtotalWithDiscount * item.quantity, 0).toFixed(2);
 
 
