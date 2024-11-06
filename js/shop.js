@@ -117,10 +117,7 @@ function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
 
     for (let item of cart) {
-        if (item.id === 1 && item.quantity >= item.offer.number) {
-            item.subtotalWithDiscount = item.price - (item.price * item.offer.percent / 100);
-        }
-        else if (item.id === 3 && item.quantity >= item.offer.number) {
+        if (item.offer && item.quantity >= item.offer.number) {
             item.subtotalWithDiscount = item.price - (item.price * item.offer.percent / 100);
         }
         else {
